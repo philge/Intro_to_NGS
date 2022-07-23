@@ -50,3 +50,21 @@ samtools index GCF_000012905.2_ASM1290v2_genomic.bam
 ```
 samtools view -C -T GCF_000012905.2_ASM1290v2_genomic.fna -o GCF_000012905.2_ASM1290v2_genomi.cram GCF_000012905.2_ASM1290v2_genomic.bam
 ````
+
+#### GFF
+```
+wget -c https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/012/905/GCF_000012905.2_ASM1290v2/GCF_000012905.2_ASM1290v2_genomic.gff.gz
+gunzip GCF_000012905.2_ASM1290v2_genomic.gff.gz
+less GCF_000012905.2_ASM1290v2_genomic.gff
+cd ..
+```
+
+### Quality Control  
+#### FastQC
+```
+cd data/raw/
+conda install -c bioconda fastqc
+fastqc -t 60 -q *.fastq
+firefox --no-remote insert_220_1_fastqc.html &
+cd ..
+```
