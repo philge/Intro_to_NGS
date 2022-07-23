@@ -134,6 +134,7 @@ cd ../../
 ```
 
 ### Variant calling workflow
+#### Create Index
 ```
 mkdir -p variant_calling/data/
 cd variant_calling/data/
