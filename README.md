@@ -1,8 +1,13 @@
 ## Intro_to_NGS
 
+### Pull Docker image
+```
+docker pull philge/ngs_tools
+```
+
 ### Run Docker container
 ```
-docker run -it -v /home/ppw5y/philge/course/:/course/ ngs_tools /bin/bash
+docker run -it -v C:\Users\philge1.philip\Desktop\:/course/ philge/ngs_tools /bin/bash
 ```
 
 ### File Types  
