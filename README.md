@@ -74,6 +74,7 @@ cd ..
 cd data/raw/
 #conda install -c bioconda fastqc
 fastqc -t 60 -q *.fastq
+#real    2m0.347s
 firefox --no-remote insert_220_1_fastqc.html &
 cd ..
 ```
