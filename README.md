@@ -82,11 +82,11 @@ cd ../../
 ### Genome Assembly
 #### Spades
 ```
-mkdir spades/
-cd spades/
+#mkdir spades/
+#cd spades/
 #conda install -c bioconda spades
-spades.py -t 6 --pe1-1 ../data/trimmed/insert_220_1.fastq --pe1-2 ../data/trimmed/insert_220_2.fastq -o Spades_Rhodobacter 1>spades.o 2>spades.e
-cd ../
+#spades.py -t 6 --pe1-1 ../data/trimmed/insert_220_1.fastq --pe1-2 ../data/trimmed/insert_220_2.fastq -o Spades_Rhodobacter 1>spades.o 2>spades.e
+#cd ../
 ```
 
 #### Abyss
