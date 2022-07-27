@@ -8,6 +8,7 @@ docker pull philge/ngs_tools
 ### Run Docker container
 ```
 docker run -it -v C:\Users\philge1.philip\Desktop\course\:/course/ philge/ngs_tools /bin/bash
+cd course
 ```
 
 ### File Types  
