@@ -96,7 +96,7 @@ cd abyss
 #conda install -c bioconda abyss
 export OMPI_ALLOW_RUN_AS_ROOT=1
 export OMPI_ALLOW_RUN_AS_ROOT_CONFIRM=1 
-abyss-pe k=31 np=30 name=asm in=' ../data/trimmed/insert_220_1.fastq ../data/trimmed/insert_220_2.fastq' 1>abyss.o 2>abyss.e
+abyss-pe k=31 np=4 name=asm in=' ../data/trimmed/insert_220_1.fastq ../data/trimmed/insert_220_2.fastq' 1>abyss.o 2>abyss.e
 #real    12m46.002s
 k: size of k-mer
 np: number of MPI processes
