@@ -16,7 +16,7 @@ cd course
 ```
 mkdir -p assembly/quast/
 cd assembly/quast/
-Rhodobacter genome sequence
+#Rhodobacter genome sequence
 wget -c https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/012/905/GCF_000012905.2_ASM1290v2/GCF_000012905.2_ASM1290v2_genomic.fna.gz
 ls –lh
 gunzip GCF_000012905.2_ASM1290v2_genomic.fna.gz
@@ -28,8 +28,9 @@ cd ..
 ```
 mkdir data
 cd data
-Rhodobacter HiSeq data
+#Rhodobacter HiSeq data
 wget -c https://ccb.jhu.edu/gage_b/datasets/R_sphaeroides_HiSeq.tar.gz
+#real    8m37.836s
 tar -xvf R_sphaeroides_HiSeq.tar.gz
 less raw/insert_220_1.fastq
 cd ..
