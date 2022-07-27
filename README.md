@@ -150,10 +150,11 @@ gunzip chr2.fa.gz
 vi region.bed
 chr2    136545000       136617000
 conda install -c bioconda bedtools
-samtools faidx chr2_region.fasta
 bedtools getfasta -fi chr2.fa -bed region.bed -fo chr2_region.fasta
+#edit header, update as only chr2
+vi chr2_region.fasta
 bwa index -a bwtsw chr2_region.fasta
-
+samtools faidx chr2_region.fasta
 conda install -c bioconda gatk4
 #Generate a GATK sequence dictionary
 gatk --java-options -Xmx7g CreateSequenceDictionary -R chr2_region.fasta  -O chr2_region.dict 1>gatk_dict.o 2>gatk_dict.e
