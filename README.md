@@ -32,6 +32,7 @@ cd data
 wget -c https://ccb.jhu.edu/gage_b/datasets/R_sphaeroides_HiSeq.tar.gz
 #real    8m37.836s
 tar -xvf R_sphaeroides_HiSeq.tar.gz
+#real    2m47.059s
 less raw/insert_220_1.fastq
 cd ..
 ```
@@ -39,10 +40,10 @@ cd ..
 #### SAM
 ```
 cd quast
-conda install -c bioconda bwa
+#conda install -c bioconda bwa
 bwa index GCF_000012905.2_ASM1290v2_genomic.fna
 bwa mem -t 60 GCF_000012905.2_ASM1290v2_genomic.fna ../data/trimmed/insert_220_1.fastq ../data/trimmed/insert_220_2.fastq 1>GCF_000012905.2_ASM1290v2_genomic.sam 2>bwa_mem.e
-conda install -c bioconda samtools
+#conda install -c bioconda samtools
 samtools view GCF_000012905.2_ASM1290v2_genomic.sam | less
 ```
 
@@ -70,7 +71,7 @@ cd ..
 #### FastQC
 ```
 cd data/raw/
-conda install -c bioconda fastqc
+#conda install -c bioconda fastqc
 fastqc -t 60 -q *.fastq
 firefox --no-remote insert_220_1_fastqc.html &
 cd ..
@@ -81,7 +82,7 @@ cd ..
 ```
 mkdir spades/
 cd spades/
-conda install -c bioconda spades
+#conda install -c bioconda spades
 spades.py -t 60 --pe1-1 ../data/trimmed/insert_220_1.fastq --pe1-2 ../data/trimmed/insert_220_2.fastq -o Spades_Rhodobacter 1>spades.o 2>spades.e
 cd ../
 ```
@@ -90,7 +91,7 @@ cd ../
 ```
 mkdir abyss
 cd abyss
-conda install -c bioconda abyss
+#conda install -c bioconda abyss
 export OMPI_ALLOW_RUN_AS_ROOT=1
 export OMPI_ALLOW_RUN_AS_ROOT_CONFIRM=1 
 abyss-pe k=31 np=30 name=asm in=' ../data/trimmed/insert_220_1.fastq ../data/trimmed/insert_220_2.fastq' 1>abyss.o 2>abyss.e
@@ -114,7 +115,7 @@ bwa index contigs.fasta
 bwa mem -t 60 contigs.fasta ../../data/trimmed/insert_220_1.fastq ../../data/trimmed/insert_220_2.fastq 2>bwa_mem.e | samtools sort -@ 60 -T ../../temp/ -O BAM -o bwa_alignment_sorted.bam - 1>samtools.o 2>samtools.e
 #real    0m44.949s
 samtools index bwa_alignment_sorted.bam
-conda install -c bioconda pilon
+#conda install -c bioconda pilon
 pilon --genome contigs.fasta --frags bwa_alignment_sorted.bam --outdir polished_assembly --output polished_assembly --changes 1>pilon.o 2>pilon.e
 #real    3m8.137s
 --changes: If specified, a file listing changes in the <output>.fasta will be generated.
@@ -151,13 +152,13 @@ wget -c https://hgdownload.soe.ucsc.edu/goldenPath/hg38/chromosomes/chr2.fa.gz
 gunzip chr2.fa.gz
 vi region.bed
 chr2    136545000       136617000
-conda install -c bioconda bedtools
+#conda install -c bioconda bedtools
 bedtools getfasta -fi chr2.fa -bed region.bed -fo chr2_region.fasta
 #edit header, update as only chr2
 vi chr2_region.fasta
 bwa index -a bwtsw chr2_region.fasta
 samtools faidx chr2_region.fasta
-conda install -c bioconda gatk4
+#conda install -c bioconda gatk4
 #Generate a GATK sequence dictionary
 gatk --java-options -Xmx7g CreateSequenceDictionary -R chr2_region.fasta  -O chr2_region.dict 1>gatk_dict.o 2>gatk_dict.e
 ```
