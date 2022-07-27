@@ -76,7 +76,7 @@ cd data/raw/
 fastqc -t 60 -q *.fastq
 #real    2m0.347s
 firefox --no-remote insert_220_1_fastqc.html &
-cd ..
+cd ../../
 ```
 
 ### Genome Assembly
@@ -85,7 +85,7 @@ cd ..
 mkdir spades/
 cd spades/
 #conda install -c bioconda spades
-spades.py -t 60 --pe1-1 ../data/trimmed/insert_220_1.fastq --pe1-2 ../data/trimmed/insert_220_2.fastq -o Spades_Rhodobacter 1>spades.o 2>spades.e
+spades.py -t 6 --pe1-1 ../data/trimmed/insert_220_1.fastq --pe1-2 ../data/trimmed/insert_220_2.fastq -o Spades_Rhodobacter 1>spades.o 2>spades.e
 cd ../
 ```
 
