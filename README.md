@@ -43,6 +43,7 @@ cd quast
 #conda install -c bioconda bwa
 bwa index GCF_000012905.2_ASM1290v2_genomic.fna
 bwa mem -t 6 GCF_000012905.2_ASM1290v2_genomic.fna ../data/trimmed/insert_220_1.fastq ../data/trimmed/insert_220_2.fastq 1>GCF_000012905.2_ASM1290v2_genomic.sam 2>bwa_mem.e
+#real    18m49.930s
 #conda install -c bioconda samtools
 samtools view GCF_000012905.2_ASM1290v2_genomic.sam | less
 ```
@@ -50,7 +51,7 @@ samtools view GCF_000012905.2_ASM1290v2_genomic.sam | less
 #### BAM
 ```
 mkdir ../temp
-samtools sort -@ 60 -T ../temp/ -O BAM -o GCF_000012905.2_ASM1290v2_genomic.bam GCF_000012905.2_ASM1290v2_genomic.sam 1>samtools.o 2>samtools.e
+samtools sort -@ 6 -T ../temp/ -O BAM -o GCF_000012905.2_ASM1290v2_genomic.bam GCF_000012905.2_ASM1290v2_genomic.sam 1>samtools.o 2>samtools.e
 samtools index GCF_000012905.2_ASM1290v2_genomic.bam
 ```
 
