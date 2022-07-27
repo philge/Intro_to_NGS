@@ -162,7 +162,7 @@ gatk --java-options -Xmx7g CreateSequenceDictionary -R chr2_region.fasta  -O chr
 
 #### Aligning reads BWA mem
 ```
-bwa mem -R "@RG\tID:readgroup_HG00097\tPU:lanex_flowcellx\tSM:HG00097\tLB:libraryx\tPL:illumina" -t 60 chr2_region.fasta SRR741385_1.fastq.gz SRR741385_2.fastq.gz | samtools sort > HG00097.bam
+bwa mem -R "@RG\tID:readgroup_HG00097\tPU:lanex_flowcellx\tSM:HG00097\tLB:libraryx\tPL:illumina" -t 60 chr2_region.fasta SRR741385_1.fastq.gz SRR741385_2.fastq.gz | samtools sort -@ 60 -o HG00097.bam
 samtools index HG00097.bam
 cd ..
 wget -c https://data.broadinstitute.org/igv/projects/downloads/2.13/IGV_Linux_2.13.2_WithJava.zip
