@@ -132,14 +132,15 @@ bwa mem -t 6 asm-contigs.fa ../data/trimmed/insert_220_1.fastq ../data/trimmed/i
 real    2m50.395s
 samtools index bwa_alignment_sorted.bam
 pilon --genome asm-contigs.fa --frags bwa_alignment_sorted.bam --outdir polished_assembly --output polished_assembly --changes 1>pilon.o 2>pilon.e
-#real    3m15.166s
+#real    6m30.036s
 	--changes: If specified, a file listing changes in the <output>.fasta will be generated.
 ```
 
 #### QUAST
 ```
 cd ../quast
-quast.py ../spades/Spades_Rhodobacter/polished_assembly/polished_assembly.fasta ../abyss/polished_assembly/polished_assembly.fasta -t 60 --labels " spades_polish, abyss_polish" -r GCF_000012905.2_ASM1290v2_genomic.fna -g GCF_000012905.2_ASM1290v2_genomic.gff 1>quast_polish.o 2>quast_polish.e
+#quast.py ../spades/Spades_Rhodobacter/polished_assembly/polished_assembly.fasta ../abyss/polished_assembly/polished_assembly.fasta -t 60 --labels " spades_polish, #abyss_polish" -r GCF_000012905.2_ASM1290v2_genomic.fna -g GCF_000012905.2_ASM1290v2_genomic.gff 1>quast_polish.o 2>quast_polish.e
+quast.py ../abyss/polished_assembly/polished_assembly.fasta -t 6 --labels " abyss_polish" -r GCF_000012905.2_ASM1290v2_genomic.fna -g GCF_000012905.2_ASM1290v2_genomic.gff 1>quast_polish.o 2>quast_polish.e
 #real    0m13.402s
 cd ../../
 ```
