@@ -128,7 +128,7 @@ pilon --genome contigs.fasta --frags bwa_alignment_sorted.bam --outdir polished_
 ```
 cd ../../abyss/
 bwa index asm-contigs.fa
-bwa mem -t 60 asm-contigs.fa ../data/trimmed/insert_220_1.fastq ../data/trimmed/insert_220_2.fastq 2>bwa_mem.e | samtools sort -@ 60 -T ../temp/ -O BAM -o bwa_alignment_sorted.bam - 1>samtools.o 2>samtools.e
+bwa mem -t 6 asm-contigs.fa ../data/trimmed/insert_220_1.fastq ../data/trimmed/insert_220_2.fastq 2>bwa_mem.e | samtools sort -@ 6 -T ../temp/ -O BAM -o bwa_alignment_sorted.bam - 1>samtools.o 2>samtools.e
 #real    0m43.599s
 samtools index bwa_alignment_sorted.bam
 pilon --genome asm-contigs.fa --frags bwa_alignment_sorted.bam --outdir polished_assembly --output polished_assembly --changes 1>pilon.o 2>pilon.e
