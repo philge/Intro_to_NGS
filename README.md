@@ -165,7 +165,7 @@ bwa index -a bwtsw chr2.fa
 samtools faidx chr2.fa
 #conda install -c bioconda gatk4
 #Generate a GATK sequence dictionary
-gatk --java-options -Xmx7g CreateSequenceDictionary -R chr2.fa  -O chr2_region.dict 1>gatk_dict.o 2>gatk_dict.e
+gatk --java-options -Xmx7g CreateSequenceDictionary -R chr2.fa  -O chr2.dict 1>gatk_dict.o 2>gatk_dict.e
 ```
 
 #### Aligning reads BWA mem
@@ -186,7 +186,7 @@ Which RefSeq Genes are located within the region chr2:136545000-136617000?
 #### Variant Calling HaplotypeCaller
 ```
 gatk --java-options -Xmx7g HaplotypeCaller \
--R chr2.fasta \
+-R chr2.fa \
 -I HG00097.bam \
 -O HG00097.vcf
 #To view the header line
