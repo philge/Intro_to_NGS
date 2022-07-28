@@ -160,11 +160,12 @@ chr2    136545000       136617000
 bedtools getfasta -fi chr2.fa -bed region.bed -fo chr2_region.fasta
 #edit header, update as only chr2
 vi chr2_region.fasta
-bwa index -a bwtsw chr2_region.fasta
-samtools faidx chr2_region.fasta
+bwa index -a bwtsw chr2.fa
+#real    4m14.955s
+samtools faidx chr2.fa
 #conda install -c bioconda gatk4
 #Generate a GATK sequence dictionary
-gatk --java-options -Xmx7g CreateSequenceDictionary -R chr2_region.fasta  -O chr2_region.dict 1>gatk_dict.o 2>gatk_dict.e
+gatk --java-options -Xmx7g CreateSequenceDictionary -R chr2.fa  -O chr2_region.dict 1>gatk_dict.o 2>gatk_dict.e
 ```
 
 #### Aligning reads BWA mem
