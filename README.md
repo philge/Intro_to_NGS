@@ -97,7 +97,7 @@ cd abyss
 export OMPI_ALLOW_RUN_AS_ROOT=1
 export OMPI_ALLOW_RUN_AS_ROOT_CONFIRM=1 
 abyss-pe k=31 np=4 name=asm in=' ../data/trimmed/insert_220_1.fastq ../data/trimmed/insert_220_2.fastq' 1>abyss.o 2>abyss.e
-#real    12m46.002s
+#real    17m48.814s
 k: size of k-mer
 np: number of MPI processes
 ```
@@ -106,7 +106,8 @@ np: number of MPI processes
 ```
 cd ../quast
 #Installation as in http://quast.sourceforge.net/docs/manual.html#sec3 
-quast.py ../spades/Spades_Rhodobacter/contigs.fasta ../abyss/asm-contigs.fa -t 60 --labels " spades, abyss" -r GCF_000012905.2_ASM1290v2_genomic.fna -g GCF_000012905.2_ASM1290v2_genomic.gff 1>quast.o 2>quast.e
+#quast.py ../spades/Spades_Rhodobacter/contigs.fasta ../abyss/asm-contigs.fa -t 60 --labels " spades, abyss" -r GCF_000012905.2_ASM1290v2_genomic.fna -g #GCF_000012905.2_ASM1290v2_genomic.gff 1>quast.o 2>quast.e
+quast.py ../abyss/asm-contigs.fa -t 60 --labels " abyss" -r GCF_000012905.2_ASM1290v2_genomic.fna -g GCF_000012905.2_ASM1290v2_genomic.gff 1>quast.o 2>quast.e
 #real    0m13.402s
 ```
 
