@@ -172,6 +172,7 @@ gatk --java-options -Xmx7g CreateSequenceDictionary -R chr2.fa -O chr2.dict 1>ga
 ```
 #bwa mem -R "@RG\tID:readgroup_HG00097\tPU:lanex_flowcellx\tSM:HG00097\tLB:libraryx\tPL:illumina" -t 6 chr2.fa SRR741385_1.fastq.gz SRR741385_2.fastq.gz | samtools #sort -@ 6 -O BAM -o HG00097.bam -
 samtools index HG00097.bam
+#real    9m28.047s
 cd ..
 wget -c https://data.broadinstitute.org/igv/projects/downloads/2.13/IGV_Linux_2.13.2_WithJava.zip
 unzip IGV_Linux_2.13.2_WithJava.zip
